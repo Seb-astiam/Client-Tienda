@@ -4,11 +4,7 @@
     "default":"all"
     
 },
-{
-    "label":"brand",
-    "value":["Nike","Reebook","Puma"],
-    "default":"all"
-},
+
 {
     "label":"orderDirection",
     "value":["ASC","DESC"],

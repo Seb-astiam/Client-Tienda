@@ -2,16 +2,16 @@ import { useHome } from "../../hooks/useHome";
 import { useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import Filters from "../../components/Filters/Filters";
-
+import { useValueBtnBrand } from "../../hooks/useValueBtnBrand";
 const Home = () => {
   useHome();
-  const arrProducts = useSelector((state) => state.arrayProducts.allProducts);
-  const filteredProducts = useSelector((state) => state.arrayProducts.filtered);
+  useValueBtnBrand();
 
-  //console.log("arr: ", arrProducts);
+  const arrProducts = useSelector((state) => state.arrayProducts.allProducts);
+
   return (
     <div>
-      <Filters/>
+      <Filters />
       <Cards arrProducts={arrProducts} />
     </div>
   );
