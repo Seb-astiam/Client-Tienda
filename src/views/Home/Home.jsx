@@ -11,8 +11,8 @@ const Home = () => {
 
   return (
     <div>
-      <Filters />
-      <Cards arrProducts={arrProducts} />
+      {/* <Filters />
+      <Cards arrProducts={arrProducts} /> */}
     </div>
   );
 };
