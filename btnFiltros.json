@@ -1,6 +1,6 @@
 [{
-    "value":["unisex","female","male"],
     "label":"genre",
+    "value":["unisex","female","male"],
     "default":"all"
     
 },
