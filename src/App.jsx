@@ -1,6 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
+
 import Home from "./views/Home/Home";
+import Favorites from "./views/Favorites/Favorites";
+
 import NavBar from "./components/NavBar/NavBar";
 
 function App() {
@@ -8,7 +11,8 @@ function App() {
     <div className="app">
       <NavBar/>
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

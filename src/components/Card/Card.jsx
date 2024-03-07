@@ -1,18 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { addFavorite, removeFavorite } from "../../Redux/productsSlice"
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Card = ({ product }) => {
-  const { id, name, price, brand, type, color, genre, image, Stocksizes } =
-    product;
+  const dispatch = useDispatch();
+  const arrProducts = useSelector((state) => state.arrayProducts.favorites);
 
-    const [isFav, setIsFav] = useState(false);
+  const { id, name, price, brand, type, color, genre, image, Stocksizes } = product;
+  
+  const [isFav, setIsFav] = useState(false);
 
-    const favoritos = () => {
+  useEffect(() => {
+    arrProducts.forEach((fav) => {
+      if (fav.id === product.id) {
+         setIsFav(true);
+      }
+   });
+  }, [arrProducts]);
+
+  
+    const addFavoriteCard = () => {
       if(isFav) {
-        setIsFav(false)
+        setIsFav(false);
+        dispatch(removeFavorite(id));
       } else {
-        setIsFav(true)
+        setIsFav(true);
+        dispatch(addFavorite(product));
       }
     }
+
 
   return (
     <div className="flex flex-col justify-evenly items-center shadow-lg max-w-min h-96 bg-white relative">
@@ -20,9 +37,9 @@ const Card = ({ product }) => {
       <div className="w-60 h-60 flex items-center justify-center m-2 shadow-md border relative">
         <img src={image}  />
 
-        {isFav ? <button className="absolute top-2 right-3" onClick={favoritos}>❤️</button>
+        {isFav ? <button className="absolute top-2 right-3" onClick={addFavoriteCard}>❤️</button>
         :
-        <button className="absolute top-2 right-3" onClick={favoritos}>🤍</button>}
+        <button className="absolute top-2 right-3" onClick={addFavoriteCard}>🤍</button>}
       </div>
 
       <div className="flex flex-col items-center m-1">
