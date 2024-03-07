@@ -1,18 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Card = ({ product }) => {
-  //console.log("first", product);
   const { id, name, price, brand, type, color, genre, image, Stocksizes } =
     product;
+
+    const [isFav, setIsFav] = useState(false);
+
+    const favoritos = () => {
+      if(isFav) {
+        setIsFav(false)
+      } else {
+        setIsFav(true)
+      }
+    }
+
   return (
-    <div className="bg-yellow rounded border-8 border-yellow-400">
-      <img src={image}></img>
-      <h1 className="text-3xl font-bold underline text-center border-r-emerald-600">
-        {name}
-      </h1>
-      <h2>{brand}</h2>
-      <h2>{genre}</h2>
-      <h3>${price}</h3>
+    <div className="flex flex-col justify-evenly items-center shadow-lg max-w-min h-96 bg-white relative">
+
+      <div className="w-60 h-60 flex items-center justify-center m-2 shadow-md border relative">
+        <img src={image}  />
+
+        {isFav ? <button className="absolute top-2 right-3" onClick={favoritos}>❤️</button>
+        :
+        <button className="absolute top-2 right-3" onClick={favoritos}>🤍</button>}
+      </div>
+
+      <div className="flex flex-col items-center m-1">
+
+        <h2 className="font-mono max-w-[250px] truncate"> {name} </h2>
+
+        <div className="flex justify-between w-36 bg-black p-1">
+          <h2 className="text-white">{brand}</h2>
+          <h2 className="text-white">{color}</h2>
+        </div>
+
+        <h3 className="font-sans">${price}</h3>
+
+        <button className="bg-yellow border rounded p-1">Agregar al carrito</button>
+      </div>
+
     </div>
   );
 };

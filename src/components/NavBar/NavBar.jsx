@@ -7,7 +7,7 @@ import Logo from "./Logo";
 
 const NavBar = ()=>{
     return(
-        <div  className="fixed top-0 left-0 w-full">
+        <div  className="relative top-0 left-0 w-full">
             <div className=" bg-black shadow-md flex justify-end">
                 <Logo/>
                 <SearchBar/>
