@@ -33,42 +33,51 @@ const Filters = () => {
   };
 
   return (
-    <div>
+    <div className="w-1/6 flex flex-col pl-12 pb-96 mr-12 border-r justify-evenly text-2xl bg-yellow">
+      <div className="mb-8">
+        <h3 className="mb-2 font-semibold">Filtrar por marca</h3>
+
+        <select
+          name="brand"
+          value={selectFilter[name]}
+          onChange={(e) => {
+            handleChange(e);
+          }}
+          className="text-white bg-black w-32"
+        >
+          <option value="">all</option>
+          {valueBrands.map((brand, index) => {
+            return (
+              <option key={index} value={brand}>
+                {brand}
+              </option>
+            );
+          })}
+        </select>
+      </div>
       {btnFiltros.map((btn, index) => {
         return (
-          <select
-            key={index}
-            name={btn.label}
-            onChange={(e) => handleChange(e)}
-            value={selectFilter[btn.label]}
-          >
-            <option value="">{btn.default}</option>
-            {btn.value.map((item, index) => {
-              return (
-                <option key={index} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>
+          <div className="mb-8">
+            <h3 className="mb-2 font-semibold">{btn.title}</h3>
+            <select
+              key={index}
+              name={btn.label}
+              onChange={(e) => handleChange(e)}
+              value={selectFilter[btn.label]}
+              className="text-white bg-black w-32"
+            >
+              <option value="">{btn.default}</option>
+              {btn.value.map((item, index) => {
+                return (
+                  <option key={index} value={item}>
+                    {item}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         );
       })}
-      <select
-        name="brand"
-        value={selectFilter[name]}
-        onChange={(e) => {
-          handleChange(e);
-        }}
-      >
-        <option value="">Brands</option>
-        {valueBrands.map((brand, index) => {
-          return (
-            <option key={index} value={brand}>
-              {brand}
-            </option>
-          );
-        })}
-      </select>
     </div>
   );
 };

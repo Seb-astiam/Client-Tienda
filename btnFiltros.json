@@ -1,18 +1,20 @@
-[{
-    "value":["unisex","female","male"],
-    "label":"genre",
-    "default":"all"
-    
-},
-
-{
-    "label":"orderDirection",
-    "value":["ASC","DESC"],
-    "default":"none"
-},
-{
-    "label":"orderBy",
-    "value":["name","price"],
-    "default":"none"
-}
+[
+  {
+    "value": ["unisex", "female", "male"],
+    "label": "genre",
+    "default": "all",
+    "title": "Filtrar por Genero"
+  },
+  {
+    "label": "orderBy",
+    "value": ["name", "price"],
+    "default": "none",
+    "title": "Ordenar por:"
+  },
+  {
+    "label": "orderDirection",
+    "value": ["ASC", "DESC"],
+    "default": "none",
+    "title": "Ordenar en sentido"
+  }
 ]
