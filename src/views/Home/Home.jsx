@@ -10,7 +10,7 @@ const Home = () => {
   const arrProducts = useSelector((state) => state.arrayProducts.allProducts);
 
   return (
-    <div className="mt-28 flex flex-row w-screen justify-items-stretch h-5/6">
+    <div className=" flex flex-row w-screen justify-items-stretch h-screen">
       <Filters />
       <Cards arrProducts={arrProducts} />
     </div>

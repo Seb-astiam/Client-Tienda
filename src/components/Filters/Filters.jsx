@@ -33,7 +33,7 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-1/6 flex flex-col pl-12 pb-96 mr-12 border-r justify-evenly text-2xl bg-yellow">
+    <div className="w-1/6 flex flex-col pl-12 pb-96 mr-12 border-r justify-evenly text-2xl bg-grey">
       <div className="mb-8">
         <h3 className="mb-2 font-semibold">Filtrar por marca</h3>
 
@@ -43,7 +43,7 @@ const Filters = () => {
           onChange={(e) => {
             handleChange(e);
           }}
-          className="text-white bg-black w-32"
+          className="text-white bg-black w-32 border-yellow border-4 "
         >
           <option value="">all</option>
           {valueBrands.map((brand, index) => {
@@ -64,7 +64,7 @@ const Filters = () => {
               name={btn.label}
               onChange={(e) => handleChange(e)}
               value={selectFilter[btn.label]}
-              className="text-white bg-black w-32"
+              className="text-white bg-black w-32 border-yellow border-4 "
             >
               <option value="">{btn.default}</option>
               {btn.value.map((item, index) => {
